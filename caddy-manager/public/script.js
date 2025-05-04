@@ -15,23 +15,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // Function to update the dashboard with Caddy status
     function updateDashboard(data) {
         const statusElement = document.getElementById('caddy-status');
-        statusElement.textContent = `Caddy Status: ${data.status}`;
+        if (statusElement) {
+            statusElement.textContent = `Caddy Status: ${data.status}`;
+        }
     }
 
     // Event listener for refresh button
     const refreshButton = document.getElementById('refresh-button');
-    refreshButton.addEventListener('click', fetchCaddyStatus);
+    if (refreshButton) {
+        refreshButton.addEventListener('click', fetchCaddyStatus);
+    } else {
+        console.error('Refresh button not found in the DOM.');
+    }
 
     // Initial fetch of Caddy status
     fetchCaddyStatus();
-
-    const someElement = document.getElementById('someElementId'); // Replace with your actual element ID
-
-    if (someElement) {
-        someElement.addEventListener('click', () => {
-            console.log('Element clicked!');
-        });
-    } else {
-        console.error('Element with ID "someElementId" not found in the DOM.');
-    }
 });
