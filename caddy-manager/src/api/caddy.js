@@ -4,7 +4,7 @@ const CADDY_API_URL = 'http://localhost:2019'; // Adjust the URL if your Caddy s
 
 async function getCaddyConfig() {
     try {
-        const response = await axios.get(`${CADDY_API_URL}/config`);
+        const response = await axios.get(`${CADDY_API_URL}/config/`); // Add trailing slash
         return response.data;
     } catch (error) {
         console.error('Error fetching Caddy configuration:', error);
@@ -14,7 +14,7 @@ async function getCaddyConfig() {
 
 async function updateCaddyConfig(config) {
     try {
-        const response = await axios.post(`${CADDY_API_URL}/config`, config);
+        const response = await axios.post(`${CADDY_API_URL}/config/`, config); // Add trailing slash
         return response.data;
     } catch (error) {
         console.error('Error updating Caddy configuration:', error);
@@ -24,7 +24,7 @@ async function updateCaddyConfig(config) {
 
 async function getCaddyStatus() {
     try {
-        const response = await axios.get(`${CADDY_API_URL}/status`);
+        const response = await axios.get(`${CADDY_API_URL}/status/`); // Add trailing slash
         return response.data;
     } catch (error) {
         console.error('Error fetching Caddy status:', error);
