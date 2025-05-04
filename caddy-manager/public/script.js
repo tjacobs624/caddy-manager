@@ -1,3 +1,5 @@
+import JSONViewer from 'json-viewer-js';
+
 document.addEventListener('DOMContentLoaded', () => {
     const apiUrl = '/api/caddy'; // Adjust the API endpoint as necessary
 
@@ -16,7 +18,10 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateDashboard(data) {
         const statusElement = document.getElementById('caddy-status');
         if (statusElement) {
-            statusElement.textContent = `Caddy Configuration: ${JSON.stringify(data, null, 2)}`;
+            const viewer = new JSONViewer();
+            statusElement.innerHTML = ''; // Clear previous content
+            statusElement.appendChild(viewer.getContainer());
+            viewer.showJSON(data);
         }
     }
 

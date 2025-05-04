@@ -5,27 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Caddy Manager</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="node_modules/json-viewer-js/dist/json-viewer.css">
 </head>
 <body>
-    <header>
-        <h1>Caddy Server Manager</h1>
-    </header>
-    <main>
-        <section id="dashboard">
-            <h2>Dashboard</h2>
-            <div id="status"></div>
-            <button id="refresh">Refresh Status</button>
-            <button id="someElementId">Click Me</button>
-        </section>
-        <div id="dashboard">
-            <h1>Caddy Manager Dashboard</h1>
-            <p id="caddy-status">Caddy Status: Loading...</p>
-            <button id="refresh-button">Refresh Status</button>
+    <div id="dashboard">
+        <h1>Caddy Manager Dashboard</h1>
+        <button id="refresh-button">Refresh Status</button>
+        <div id="caddy-status" style="white-space: pre-wrap; background: #f4f4f4; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+            Loading...
         </div>
-    </main>
-    <footer>
-        <p>&copy; 2023 Caddy Manager</p>
-    </footer>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
