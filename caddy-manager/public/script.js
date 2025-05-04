@@ -24,4 +24,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initial fetch of Caddy status
     fetchCaddyStatus();
+
+    const someElement = document.getElementById('someElementId'); // Replace with your actual element ID
+
+    if (someElement) {
+        someElement.addEventListener('click', () => {
+            console.log('Element clicked!');
+        });
+    } else {
+        console.error('Element with ID "someElementId" not found in the DOM.');
+    }
 });
