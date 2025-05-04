@@ -18,9 +18,15 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateDashboard(data) {
         const statusElement = document.getElementById('caddy-status');
         if (statusElement) {
-            const viewer = new JSONViewer({ container: statusElement }); // Pass the container option
-            statusElement.innerHTML = ''; // Clear previous content
+            // Clear previous content
+            statusElement.innerHTML = '';
+
+            // Create a new JSONViewer instance and pass the container
+            const viewer = new JSONViewer();
+            statusElement.appendChild(viewer.getContainer());
             viewer.showJSON(data); // Display the JSON data
+        } else {
+            console.error('Caddy status element not found in the DOM.');
         }
     }
 
